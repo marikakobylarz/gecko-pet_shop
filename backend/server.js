@@ -20,6 +20,7 @@ app.get('/api/products', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Server is ready');
 });
+// eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);

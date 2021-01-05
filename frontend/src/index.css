@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500&display=swap");
 
 html {
   font-size: 62.5%;
@@ -21,17 +21,18 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'header'
-    'main'
-    'footer';
+    "header"
+    "main"
+    "footer";
   grid-template-columns: 1rf;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 10rem 1fr 5rem;
   height: 100%;
 }
 
 header {
   grid-area: header;
-  background-color: #114232
+  background-color: white;
+  height: 70px;
 }
 
 main {
@@ -56,7 +57,6 @@ h2 {
   padding: 1rem 0;
 }
 
-
 a {
   text-decoration: none;
 }
@@ -75,6 +75,9 @@ li {
   margin-top: 1rem;
 }
 
+input,
+select,
+textarea,
 button {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -83,13 +86,17 @@ button {
   font-family: Helvetica, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+button {
   background-color: #f8f8f8;
   cursor: pointer;
 }
 
+input:hover,
+select:hover,
+textarea:hover,
 button:hover {
   border: 0.1rem #404040 solid;
-
 }
 
 button.primary {
@@ -101,17 +108,43 @@ button.block {
 }
 
 /* Header */
-
-header a {
-  color: #fff;
-  padding: 1rem;
+.logo {
+  width: 5.5rem;
+  padding: 1rem 0.3rem 1rem 2rem;
 }
 
-a.brand {
-  font-family: 'Mountains of Christmas', cursive;
+header a {
+  color: #111;
+  padding: 0.5rem;
+}
+
+p.brand,
+h1.brand {
+  font-family: "Signika", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #111111;
+  font-size: 2.6rem;
+  padding: 0.3rem;
+  margin: 0rem;
+  text-align: center;
+}
+p.brand {
+  font-family: "Signika", sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #111111;
+  font-size: 1rem;
+  padding-top: 0;
+}
+
+.badge {
+  background-color: #f02020;
   color: #fff;
-  font-size: 3.5rem;
-  font-weight: bold;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
 }
 
 .row {
@@ -165,7 +198,7 @@ img.large {
   padding: 1rem;
 }
 
-.card-body>* {
+.card-body > * {
   margin-bottom: 0.5rem;
 }
 
