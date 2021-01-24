@@ -1,14 +1,23 @@
-import { BrowserRouter, Link, Route } from "react-router-dom";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import SigninScreen from "./screens/SigninScreen";
 import CartScreen from "./screens/CartScreen";
 import logo from "./image/logook-rev.jpg";
-import { useSelector } from "react-redux";
+import { signout } from "./actions/userActions";
 
 function App() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
+
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -28,7 +37,20 @@ function App() {
                   <span className="badge">{cartItems.length}</span>
                 )}
               </Link>
-              <Link to="/signin">Zaloguj</Link>
+              {userInfo ? (
+                <div className="dropdown">
+                  <Link to="#">
+                    {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+                  </Link>
+                  <ul className="dropdown-content">
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Wyloguj
+                    </Link>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/signin">Zaloguj</Link>
+              )}
             </div>
           </div>
           <nav className="row">
@@ -45,6 +67,7 @@ function App() {
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">
