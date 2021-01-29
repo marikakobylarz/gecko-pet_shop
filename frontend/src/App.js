@@ -8,6 +8,8 @@ import RegiterScreen from "./screens/RegisterScreen";
 import CartScreen from "./screens/CartScreen";
 import logo from "./image/logook-rev.jpg";
 import { signout } from "./actions/userActions";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -70,6 +72,8 @@ function App() {
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegiterScreen}></Route>
+          <Route path="/shipping" component={ShippingAddressScreen}></Route>
+          <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">
