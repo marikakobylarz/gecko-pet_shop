@@ -224,7 +224,7 @@ img.large {
   background-color: #fff;
   border-radius: 0.5rem;
   margin: 1rem;
-  max-width: 290px;
+  /* max-width: 290px; */
 }
 
 .card img.medium {

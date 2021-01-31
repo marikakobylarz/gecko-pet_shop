@@ -53,7 +53,7 @@ function PaymentMethodScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Zapłać
+            Podsumowanie zamówienia
           </button>
         </div>
       </form>
