@@ -45,8 +45,7 @@ const ProductScreen = (props) => {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Cena: {product.price} zł</li>
-                <li>Opis: {product.description}</li>
+                <li>{product.description}</li>
               </ul>
             </div>
             <div className="col-1">
@@ -55,7 +54,10 @@ const ProductScreen = (props) => {
                   <li>
                     <div className="row">
                       <div>Cena</div>
-                      <div className="price">{product.price} zł</div>
+                      <div className="price">
+                        {product.price.toFixed(2).toString().replace(".", ",")}{" "}
+                        zł
+                      </div>
                     </div>
                   </li>
                   <li>

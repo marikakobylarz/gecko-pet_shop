@@ -32,51 +32,55 @@ function ShippingAdressScreen(props) {
           <h1>Adres wysyłki</h1>
         </div>
         <div>
-          <label htmlFor="fullName">Imię i Nazwisko</label>
+          <label htmlFor="fullName"></label>
           <input
             type="text"
             id="fullName"
-            placeholder=""
+            placeholder="Imię i Nazwisko"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Adres</label>
+          <label htmlFor="address"></label>
           <input
             type="text"
             id="address"
+            placeholder="Adres"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="city">Miasto</label>
+          <label htmlFor="city"></label>
           <input
             type="text"
             id="city"
+            placeholder="Miasto"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Kod pocztowy</label>
+          <label htmlFor="postalCode"></label>
           <input
             type="text"
             id="postalCode"
+            placeholder="kod pocztowy"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="country">Kraj</label>
+          <label htmlFor="country"></label>
           <input
             type="text"
             id="country"
+            placeholder="Kraj"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required

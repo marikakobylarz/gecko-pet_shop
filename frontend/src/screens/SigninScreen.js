@@ -28,7 +28,7 @@ function SigninScreen(props) {
   }, [props.history, redirect, userInfo]);
 
   return (
-    <div>
+    <div className="signin_box">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Zaloguj się</h1>
@@ -36,21 +36,21 @@ function SigninScreen(props) {
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             type="email"
             id="email"
-            placeholder="Wpisz email"
+            placeholder="Adres email"
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Hasło</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
-            placeholder="Wpisz hasło"
+            placeholder="Hasło"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
@@ -61,7 +61,7 @@ function SigninScreen(props) {
             Zaloguj
           </button>
         </div>
-        <div>
+        <div className="redirect">
           <label />
           <div>
             Nie masz jeszcze konta?{" "}

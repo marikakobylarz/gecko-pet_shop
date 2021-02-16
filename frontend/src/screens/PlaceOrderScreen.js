@@ -100,13 +100,18 @@ function PlaceOrderScreen(props) {
               <li>
                 <div className="row">
                   <div>Twoje zakupy</div>
-                  <div>{cart.itemsPrice.toFixed(2)} zł</div>
+                  <div>
+                    {cart.itemsPrice.toFixed(2).toString().replace(".", ",")} zł
+                  </div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Wysyłka</div>
-                  <div>{cart.shippingPrice.toFixed(2)} zł</div>
+                  <div>
+                    {cart.shippingPrice.toFixed(2).toString().replace(".", ",")}{" "}
+                    zł
+                  </div>
                 </div>
               </li>
               <li>
@@ -115,7 +120,10 @@ function PlaceOrderScreen(props) {
                     <strong>Razem</strong>
                   </div>
                   <div>
-                    <strong>{cart.totalPrice.toFixed(2)} zł</strong>
+                    <strong>
+                      {cart.totalPrice.toFixed(2).toString().replace(".", ",")}{" "}
+                      zł
+                    </strong>
                   </div>
                 </div>
               </li>

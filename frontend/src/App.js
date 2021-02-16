@@ -13,6 +13,8 @@ import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -36,21 +38,32 @@ function App() {
                 <p className="brand">sklep zoologiczny</p>
               </Link>
             </div>
-            <div>
-              <Link to="/cart">
-                Koszyk
-                {cartItems.length > 0 && (
-                  <span className="badge">{cartItems.length}</span>
-                )}
-              </Link>
+            <div className="user_box">
+              <div className="cart_icon">
+                <Link to="/cart">
+                  <i className="fa fa-shopping-cart"></i>
+                  <br />
+                  Koszyk
+                  {cartItems.length > 0 && (
+                    <span className="badge">{cartItems.length}</span>
+                  )}
+                </Link>
+              </div>
+
               {userInfo ? (
-                <div className="dropdown">
+                <div className="dropdown ">
                   <Link to="#">
-                    {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+                    <i className="fa fa-user"></i>
+                    <br />
+                    {userInfo.name}
                   </Link>
-                  <ul className="dropdown-content">
-                    <li></li>
-                    <Link to="/orderhistory">Moje zamówienia</Link>
+                  <ul className="dropdown-content logged">
+                    <li>
+                      <Link to="/profile">Mój profil</Link>
+                    </li>
+                    <li>
+                      <Link to="/orderhistory">Moje zamówienia</Link>
+                    </li>
                     <li>
                       <Link to="#signout" onClick={signoutHandler}>
                         Wyloguj
@@ -59,16 +72,71 @@ function App() {
                   </ul>
                 </div>
               ) : (
-                <Link to="/signin">Zaloguj</Link>
+                <div className="dropdown ">
+                  <Link to="#">
+                    <i className="fa fa-user"></i>
+                    <br />
+                    Konto
+                  </Link>
+                  <ul className="dropdown-content">
+                    <li className="signin">
+                      <p>Jesteś juz użytkownikiem?</p>
+                      <Link to="/signin">Zaloguj się</Link>
+                    </li>
+                    <li className="register">
+                      <p>Jesteś tu pierwszy raz?</p>
+                      <Link to="/register">Załóż konto</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <div className="dropdown">
+                  <Link to="#admin">
+                    <i className="fa fa-users-cog"></i>
+                    <br />
+                    Admin
+                  </Link>
+                  <ul className="dropdown-content">
+                    <li>
+                      <Link to="/dashboard">Panel sterowania</Link>
+                    </li>
+                    <li>
+                      <Link to="/products">Produkty</Link>
+                    </li>
+                    <li>
+                      <Link to="/orders">Zamówienia</Link>
+                    </li>
+                    <li>
+                      <Link to="/userlist">Użytkownicy</Link>
+                    </li>
+                  </ul>
+                </div>
               )}
             </div>
           </div>
           <nav className="row">
             <ul className="row">
-              <li>Psy</li>
-              <li>Koty</li>
-              <li>Gryzonie</li>
-              <li>Ptaki</li>
+              <li>
+                <Link to="/#">Psy</Link>
+              </li>
+              <li>
+                <Link to="/#">Koty</Link>
+              </li>
+              <li>
+                <Link to="/#">Małe ssaki</Link>
+              </li>
+              <li>
+                <Link to="/#">Ptaki</Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <i className="fas fa-snake"></i>Gady i płazy
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">Akwarystyka</Link>
+              </li>
             </ul>
           </nav>
 
@@ -84,6 +152,10 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">

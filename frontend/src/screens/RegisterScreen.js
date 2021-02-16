@@ -34,7 +34,7 @@ function RegisterScreen(props) {
   }, [props.history, redirect, userInfo]);
 
   return (
-    <div>
+    <div className="register_box">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Zarejestruj się</h1>
@@ -42,41 +42,41 @@ function RegisterScreen(props) {
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="name">Imię</label>
+          <label htmlFor="name"></label>
           <input
             type="name"
             id="name"
-            placeholder="Wpisz imię"
+            placeholder="Imię"
             required
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="email">Adres email</label>
+          <label htmlFor="email"></label>
           <input
             type="email"
             id="email"
-            placeholder="Wpisz email"
+            placeholder="Adres email"
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Hasło</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
-            placeholder="Wpisz hasło"
+            placeholder="Hasło"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Powtórz hasło</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
-            placeholder="Potwierdź hasło"
+            placeholder="Powtórz hasło"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
@@ -87,14 +87,14 @@ function RegisterScreen(props) {
             Zarejestruj
           </button>
         </div>
-        <div>
-          <label />
-          <div>
-            Masz już konto?{" "}
-            <Link to={`/signin?redirect=${redirect}`}>Zaloguj się!</Link>
-          </div>
-        </div>
       </form>
+      <div className="redirect">
+        <label />
+        <div>
+          Masz już konto?{" "}
+          <Link to={`/signin?redirect=${redirect}`}>Zaloguj się</Link>
+        </div>
+      </div>
     </div>
   );
 }

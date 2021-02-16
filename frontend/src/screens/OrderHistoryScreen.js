@@ -45,7 +45,7 @@ function OrderHistoryScreen(props) {
                 <td>
                   <button
                     type="button"
-                    clasName="small"
+                    className="small"
                     onClick={() => {
                       props.history.push(`/order/${order._id}`);
                     }}
