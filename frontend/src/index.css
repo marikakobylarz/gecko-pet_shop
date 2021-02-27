@@ -89,7 +89,8 @@ li {
 input,
 select,
 textarea,
-button {
+button,
+.back {
   padding: 1rem;
   border: none;
   color: #000;
@@ -101,7 +102,8 @@ button {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button {
+button,
+.back {
   background-color: #f8f8f8;
   cursor: pointer;
   text-transform: uppercase;
@@ -253,11 +255,11 @@ nav li:hover {
 }
 
 .col-1 {
-  flex: 1 1 25rem;
+  flex: 1 1 40rem;
 }
 
 .col-2 {
-  flex: 2 1 50rem;
+  flex: 2 1 40rem;
 }
 
 .min-30 {
@@ -323,6 +325,7 @@ img.large {
 .card {
   background-color: #fff;
   margin: 1rem;
+  text-align: center;
   /* max-width: 290px; */
 }
 
@@ -457,11 +460,13 @@ img.large {
   /* padding-top: 1rem; */
   margin-top: 0;
 }
-.dropdown-content.logged li:hover {
+.dropdown-content.logged li:hover,
+.dropdown-content.admin li:hover {
   background-color: #e4e4e4;
 }
 
-.dropdown-content.logged li a {
+.dropdown-content.logged li a,
+.dropdown-content.admin li a {
   color: #000;
 }
 
@@ -577,6 +582,12 @@ img.large {
   display: flex;
   justify-content: space-between;
 }
+
+.cart_summary ul li:nth-child(2) {
+  margin: 2rem;
+  text-align: center;
+}
+
 .cart_summary dt {
   text-transform: uppercase;
 }
@@ -589,4 +600,10 @@ img.large {
   font-size: 1.5rem;
   background-color: #e4e4e4;
   text-transform: uppercase;
+}
+
+.back {
+  width: 100%;
+  background-color: #c8a165;
+  color: #fff;
 }

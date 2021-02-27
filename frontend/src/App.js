@@ -1,20 +1,22 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from "./screens/ProductScreen";
-import SigninScreen from "./screens/SigninScreen";
-import RegiterScreen from "./screens/RegisterScreen";
-import CartScreen from "./screens/CartScreen";
-import logo from "./image/logook-rev.jpg";
 import { signout } from "./actions/userActions";
-import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import logo from "./image/logook-rev.jpg";
+import AdminRoute from "./components/AdminRoute";
+import PrivateRoute from "./components/PrivateRoute";
+import CartScreen from "./screens/CartScreen";
+import HomeScreen from "./screens/HomeScreen";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import OrderScreen from "./screens/OrderScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import OrderScreen from "./screens/OrderScreen";
-import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import PrivateRoute from "./components/PrivateRoute";
+import ProductScreen from "./screens/ProductScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import SigninScreen from "./screens/SigninScreen";
+import ProductListScreen from "./screens/ProductListScreen";
+import RegiterScreen from "./screens/RegisterScreen";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -93,19 +95,19 @@ function App() {
               {userInfo && userInfo.isAdmin && (
                 <div className="dropdown">
                   <Link to="#admin">
-                    <i className="fa fa-users-cog"></i>
+                    <i className="fa fa-cogs"></i>
                     <br />
                     Admin
                   </Link>
-                  <ul className="dropdown-content">
+                  <ul className="dropdown-content admin">
                     <li>
                       <Link to="/dashboard">Panel sterowania</Link>
                     </li>
                     <li>
-                      <Link to="/products">Produkty</Link>
+                      <Link to="/productlist">Produkty</Link>
                     </li>
                     <li>
-                      <Link to="/orders">Zamówienia</Link>
+                      <Link to="/orderlist">Zamówienia</Link>
                     </li>
                     <li>
                       <Link to="/userlist">Użytkownicy</Link>
@@ -144,7 +146,7 @@ function App() {
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegiterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
@@ -156,6 +158,10 @@ function App() {
             path="/profile"
             component={ProfileScreen}
           ></PrivateRoute>
+          <AdminRoute
+            path="/productlist"
+            component={ProductListScreen}
+          ></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">

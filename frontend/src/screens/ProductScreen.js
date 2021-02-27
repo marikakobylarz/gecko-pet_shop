@@ -76,7 +76,7 @@ const ProductScreen = (props) => {
                     <>
                       <li>
                         <div className="row">
-                          <div>Szt</div>
+                          <div>Ilość</div>
                           <div>
                             <select
                               value={qty}

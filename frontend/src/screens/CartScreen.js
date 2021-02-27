@@ -124,6 +124,11 @@ const CartScreen = (props) => {
               </div>
             </li>
             <li>
+              <Link className="back" to="/#">
+                Kontynuuj zakupy
+              </Link>
+            </li>
+            <li>
               <button
                 type="button"
                 onClick={checkoutHandler}
