@@ -185,6 +185,17 @@ header a {
 header a .fa {
   font-size: 2rem;
 }
+@media screen and (max-width: 500px) {
+  .user_box .dropdown,
+  .cart_icon {
+    font-size: 0.8rem;
+    width: 6rem;
+  }
+
+  header a {
+    font-size: 1.2rem;
+  }
+}
 
 p.brand,
 h1.brand {
@@ -198,12 +209,20 @@ h1.brand {
   text-align: center;
 }
 p.brand {
-  font-family: "Signika", sans-serif;
-  text-transform: uppercase;
   font-weight: 300;
-  color: #fff;
   font-size: 1rem;
   padding-top: 0;
+}
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 6rem;
+  }
+  h1.brand {
+    font-size: 1.8rem;
+  }
+  .user_box {
+    font-size: 0.8rem;
+  }
 }
 
 .badge {
@@ -223,13 +242,15 @@ nav {
 ul.row {
   width: 100%;
   justify-content: space-around;
-  height: 4rem;
+  height: 3rem;
 }
 
 nav li {
   margin: 0;
   text-transform: uppercase;
   font-size: 1.9rem;
+  height: 100%;
+  padding: 2px;
 }
 
 nav li:hover {

@@ -29,7 +29,13 @@ const HomeScreen = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          <Carousel infiniteLoop={true} autoPlay={true} autoplayTimeout={5000}>
+          <Carousel
+            infiniteLoop={true}
+            showArrows
+            autoPlay
+            showThumbs={false}
+            autoplayTimeout={5000}
+          >
             <div>
               <img src={background1} alt="banner" />
               <p className="banner1"></p>
